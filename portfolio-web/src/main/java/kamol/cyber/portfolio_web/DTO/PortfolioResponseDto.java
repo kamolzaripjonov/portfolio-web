@@ -1,30 +1,19 @@
-package kamol.cyber.portfolio_web.entity;
+package kamol.cyber.portfolio_web.DTO;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "portfolios")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class Portfolio {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@AllArgsConstructor
+@NoArgsConstructor
+public class PortfolioResponseDto {
     private Long id;
-
     private String title;
-
-    @Column(length = 1000)
     private String description;
-
     private String imageUrl;
-
     private String link;
-
     private String language;
 }

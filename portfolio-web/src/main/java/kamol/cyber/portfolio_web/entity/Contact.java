@@ -3,8 +3,9 @@ package kamol.cyber.portfolio_web.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "contacts")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,10 +18,9 @@ public class Contact {
     private Long id;
 
     private String fullName;
-
     private String email;
-
+    private String subject;
     private String message;
 
-    private String phone;
+    private LocalDateTime sentAt;
 }

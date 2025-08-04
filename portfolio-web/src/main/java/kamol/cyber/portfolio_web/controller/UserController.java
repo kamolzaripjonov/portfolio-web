@@ -1,7 +1,7 @@
 package kamol.cyber.portfolio_web.controller;
 
 import kamol.cyber.portfolio_web.DTO.RegisterDTO;
-import kamol.cyber.portfolio_web.DTO.UserDTO;
+import kamol.cyber.portfolio_web.DTO.UserDto;
 import kamol.cyber.portfolio_web.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<List<UserDTO>> getAllUsers() {
-        return ResponseEntity.ok(userService.getAllUsers());
+    public ResponseEntity<List<UserDto>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAll());
     }
 }

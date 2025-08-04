@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "about")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,6 +15,9 @@ public class About {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "TEXT")
-    private String description;
+    private String shortText;
+    @Lob
+    private String fullText;
+
+    private String image; // Profil rasmi
 }

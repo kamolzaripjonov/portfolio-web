@@ -9,14 +9,17 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CV {
+public class Project {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fileName;
-    private String fileType;
-
+    private String title;
     @Lob
-    private byte[] data;
+    private String description;
+
+    private String image; // Project rasmi
+    private String demoUrl;
+    private String sourceUrl;
 }

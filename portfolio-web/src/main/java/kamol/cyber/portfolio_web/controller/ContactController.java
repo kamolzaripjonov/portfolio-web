@@ -1,22 +1,33 @@
-package kamol.cyber.portfolio_web.controller;
+package kamol.cyber.portfolio_web.contact;
 
-import kamol.cyber.portfolio_web.DTO.ContactRequest;
-import kamol.cyber.portfolio_web.service.EmailService;
-import org.springframework.beans.factory.annotation.Autowired;
+import kamol.cyber.portfolio_web.DTO.ContactDto;
+import kamol.cyber.portfolio_web.service.ContactService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/contact")
-@CrossOrigin(origins = "*") // front bilan aloqani ruxsat etish
+@RequestMapping("/api/contacts")
+@RequiredArgsConstructor
 public class ContactController {
 
-    @Autowired
-    private EmailService emailService;
+    private final ContactService contactService;
 
     @PostMapping
-    public ResponseEntity<String> sendEmail(@RequestBody ContactRequest request) {
-        emailService.sendMessage(request.getEmail(), request.getName(), request.getMessage());
-        return ResponseEntity.ok("Xabar muvaffaqiyatli yuborildi!");
+    public ResponseEntity<ContactDto> create(@RequestBody ContactDto dto) {
+        return ResponseEntity.ok(contactService.create(dto));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ContactDto>> getAll() {
+        return ResponseEntity.ok(contactService.getAll());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        contactService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }

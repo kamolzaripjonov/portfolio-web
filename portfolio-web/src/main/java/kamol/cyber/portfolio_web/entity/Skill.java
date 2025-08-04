@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "skills")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,6 +16,7 @@ public class Skill {
     private Long id;
 
     private String name;
+    private int level; // 1–100 or 1–10
 
-    private int percentage; // 0 - 100 oralig'ida
+    private String icon; // Rasm fayl nomi
 }
