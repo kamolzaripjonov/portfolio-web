@@ -1,14 +1,12 @@
 package kamol.cyber.portfolio_web.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Table(name = "portfolios")
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -19,7 +17,7 @@ public class Portfolio {
 
     private String title;
 
-    @Column(length = 1000)
+    @Column(length = 2000)
     private String description;
 
     private String imageUrl;

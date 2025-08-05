@@ -1,9 +1,9 @@
 package kamol.cyber.portfolio_web.entity;
 
 import jakarta.persistence.*;
+import kamol.cyber.portfolio_web.entity.enums.Role;
+import kamol.cyber.portfolio_web.entity.template.AbsNameEntity;
 import lombok.*;
-
-import java.util.Set;
 
 @Entity
 @Getter
@@ -11,25 +11,21 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
-
+public class User extends AbsNameEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String fullName;
-
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String username;
 
+    @Column(nullable = false)
+    private String fullName;
+
+    @Column(nullable = false)
     private String password;
 
-    private String profileImage; // fayl nomi
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 }

@@ -10,14 +10,12 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class About {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String shortText;
-    @Lob
-    private String fullText;
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String description;
 
-    private String image; // Profil rasmi
+    private String imageUrl;
 }

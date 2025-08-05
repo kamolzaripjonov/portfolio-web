@@ -16,7 +16,8 @@ public class Skill {
     private Long id;
 
     private String name;
-    private int level; // 1–100 or 1–10
 
-    private String icon; // Rasm fayl nomi
+    private String description;
+
+    private String imageUrl; // frontendda ko‘rsatish uchun
 }
