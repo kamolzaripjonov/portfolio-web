@@ -1,21 +1,15 @@
 package kamol.cyber.portfolio_web.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+        import lombok.Data;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Table(name = "abouts")
+@Data
 public class About {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
-
     private String imageUrl;
 }

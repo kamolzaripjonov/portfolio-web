@@ -1,23 +1,15 @@
 package kamol.cyber.portfolio_web.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Table(name = "skills")
+@Data
 public class Skill {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
-    private String description;
-
-    private String imageUrl; // frontendda ko‘rsatish uchun
+    private String level;
 }

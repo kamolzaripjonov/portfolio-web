@@ -1,5 +1,5 @@
 package kamol.cyber.portfolio_web.entity.enums;
 
-public enum Role {
+public enum RoleName {
     ADMIN, DIRECTOR
 }
